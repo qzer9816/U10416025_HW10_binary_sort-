@@ -5,6 +5,7 @@ public class BinarySort
 {
 	public static void main(String args[])
 	{	
+		int first, last, middle;
 		int number;
 		int element[];
 		int search;
@@ -23,5 +24,26 @@ public class BinarySort
 		
 		System.out.println("Enter value to find:");
 		search = input.nextInt();
+		
+		first = 0;
+		last = number - 1;
+		middle = (first + last)/2;
+
+		while( first <= last ){
+			if ( element[middle] < search ){
+				first = middle + 1;    
+			}
+			else if (element[middle] == search){
+				System.out.println("The number " + search + " at position " + (middle + 1) + ".");
+				break;
+			}
+			else{
+				last = middle - 1;
+				middle = (first + last)/2;
+			}
+		}
+		if ( first > last ){
+			System.out.println("The number " + search + " is not in this list.\n");
+		}
 	}
 }
